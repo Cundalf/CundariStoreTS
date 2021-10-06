@@ -1,0 +1,37 @@
+
+    <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+        <li>
+            <a routerLink="/">
+                <mat-icon class="icon">home</mat-icon>
+                <span class="label">Home</span>
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="/catalog">
+                <mat-icon class="icon">dashboard</mat-icon>
+                <span class="label">Catalogo</span>
+            </a>
+        </li>
+        
+        <li *ngIf="!isLogin">
+            <a routerLink="/register">
+                <mat-icon class="icon">app_registration</mat-icon>
+                <span class="label">Registro</span>
+            </a>
+        </li>
+
+        <li *ngIf="!isLogin">
+            <a routerLink="/login">
+                <mat-icon class="icon">login</mat-icon>
+                <span class="label">Login</span>
+            </a>
+        </li>
+        
+        <li *ngIf="isLogin">
+            <a (click)="logout()">
+                <mat-icon class="icon">logout</mat-icon>
+                <span class="label">LogOut</span>
+            </a>
+        </li>
+    </ul>

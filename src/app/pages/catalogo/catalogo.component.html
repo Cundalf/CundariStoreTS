@@ -1,0 +1,19 @@
+<div class="catalog-container">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    
+    <div *ngIf="!loading">
+        <h1>Catalogo</h1>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Categoria</mat-label>
+            <mat-select [(ngModel)]="selectedFilter" (ngModelChange)="filter($event)">
+                <mat-option value=""></mat-option>
+                <mat-option *ngFor="let cat of categories" value="{{cat}}">{{cat | titlecase}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <div *ngFor="let product of products">
+            <app-product [data]="product"></app-product>
+        </div>
+    </div>
+</div>

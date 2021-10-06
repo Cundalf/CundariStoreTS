@@ -1,0 +1,36 @@
+<form [formGroup]="registerForm" (ngSubmit)="registrarse()">
+    
+    <h1>Registro</h1>
+    
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input type="text" formControlName="nombre" matInput>
+        </mat-form-field>
+        <div *ngIf="registerForm.get('nombre')?.errors && registerForm.get('nombre')?.dirty">
+            El campo es obligatorio
+        </div>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="text" formControlName="email" matInput>
+        </mat-form-field>
+        
+        <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.dirty">
+            Debe ingresar un email valido
+        </div>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="pass"
+                [ngClass]="{error:registerForm.get('pass')?.hasError('required') && registerForm.get('pass')?.dirty,warning:registerForm.get('pass')?.hasError('minlength') && registerForm.get('pass')?.dirty}">
+        </mat-form-field>
+        <div *ngIf="registerForm.get('pass')?.errors && registerForm.get('pass')?.dirty">
+            <p *ngIf="registerForm.get('pass')?.hasError('required')">El campo es obligatorio</p>
+            <p *ngIf="registerForm.get('pass')?.hasError('minlength')">Debe tener al menos 8 caracteres</p>
+        </div>
+    </div>
+    <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">Registrarse</button>
+</form>

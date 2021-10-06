@@ -1,0 +1,40 @@
+.product-card {
+    width        : 400px;
+    float        : left;
+    margin-right : 10px;
+    margin-bottom: 10px;
+}
+
+mat-card img {
+    height: 400px;
+}
+
+.left {
+    width: 50%;
+    float: left;
+}
+
+.right {
+    text-align    : right;
+    width         : 50%;
+    float         : left;
+    vertical-align: middle;
+    color         : #ffeb3b;
+    height        : 36px;
+}
+
+.rating {
+    font-size: 16px !important;
+}
+
+mat-icon.rating {
+    padding-right: 5px;
+}
+
+@media (max-width: 600px) {
+    .product-card {
+        width : calc(100% - 32px);
+        margin: 10px auto;
+    }
+
+}

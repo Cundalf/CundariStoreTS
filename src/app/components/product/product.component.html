@@ -1,0 +1,22 @@
+<mat-card class="product-card">
+    <mat-card-header>
+        <div mat-card-avatar>
+            <mat-icon>{{data.category | categoryIcon}}</mat-icon>
+        </div>
+        <mat-card-title>{{data.title.substring(0, 24)}}</mat-card-title>
+        <mat-card-subtitle>{{data.price | currency:'ARS'}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{data.image}}">
+
+    <mat-card-actions>
+        <div class="left">
+
+            <button mat-button routerLink="/product/{{data.id}}" *ngIf="verDetalle">Ver Detalle</button>
+
+        </div>
+        <div class="right">
+            <mat-icon class="rating">star</mat-icon>
+            <span class="rating">{{data.rating.rate}} ({{data.rating.count}})</span>
+        </div>
+    </mat-card-actions>
+</mat-card>
